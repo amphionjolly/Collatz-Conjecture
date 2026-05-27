@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collatz Pure Mathematics Core Console</title>
+    <style>
+        :root {
+            --bg-deep: #0a0b0e;
+            --bg-panel: #11141a;
+            --border: #222936;
+            --accent-green: #4af6c3;
+            --accent-blue: #3b82f6;
+            --text-glow: #cdd6f4;
+            --text-dim: #6c7a9c;
+        }
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-glow);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        h1 { color: var(--accent-green); margin: 0; font-size: 1.7rem; font-weight: normal; letter-spacing: 1px; }
+        .control-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background: var(--bg-panel);
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+        .input-group label { display: block; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 5px; }
+        input, select {
+            background: #060709;
+            color: var(--accent-green);
+            border: 1px solid var(--border);
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 15px;
+        }
+        .card-title {
+            font-size: 0.95rem;
+            color: var(--accent-green);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .full-span { grid-column: span 2; }
+        pre {
+            background: #060709;
+            padding: 12px;
+            border: 1px solid #161a22;
+            color: #a6e3a1;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #161a22;
+            font-size: 0.85rem;
+        }
+        .data-lbl { color: var(--text-dim); }
+        .render-frame {
+            background: #060709;
+            border: 1px solid var(--border);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            overflow: hidden;
+        }
+        .render-frame img { max-width: 100%; height: auto; }
+        button {
+            background: #1c2331;
+            color: #fff;
+            border: 1px solid var(--border);
+            padding: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        button:hover { background: var(--accent-green); color: #000; }
+        .tool-badge {
+            background: #1e293b;
+            color: var(--accent-blue);
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            float: right;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>COLLATZ ARCHITECTURE LABORATORY</h1>
+        <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: var(--text-dim);">Production Console Core Framework // Multi-Script Wrapper Matrix</p>
+    </header>
+
+    <div class="control-strip">
+        <div class="input-group">
+            <label>Target Entry Integer (n)</label>
+            <input type="number" id="param_n" value="27">
+        </div>
+        <div class="input-group">
+            <label>Global Range Limit (Macro Tools)</label>
+            <input type="number" id="param_range" value="50">
+        </div>
+        <div class="input-group" style="display: flex; align-items: flex-end;">
+            <button style="width: 100%;" onclick="dispatchCompute('all')">EXECUTE ENTIRE RECONNAISSANCE SUITE</button>
+        </div>
+    </div>
+
+    <div class="grid-layout">
+        
+        <div class="card">
+            <h3 class="card-title">Tool 1: Console Step Stream <span class="tool-badge">collatz conjecture.py</span></h3>
+            <pre id="t1_out" style="max-height: 220px;">Awaiting algorithmic execution command...</pre>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tool 2: Quantitative Telemetry <span class="tool-badge">length & trends.py</span></h3>
+            <div id="t2_out">
+                <div class="data-row"><span class="data-lbl">Total Trajectory Loops</span><span id="v_steps">-</span></div>
+                <div class="data-row"><span class="data-lbl">Peak Convergence Apex</span><span id="v_peak">-</span></div>
+                <div class="data-row"><span class="data-lbl">Odd Vector Halts</span><span id="v_odd">-</span></div>
+                <div class="data-row"><span class="data-lbl">Even Vector Halts</span><span id="v_even">-</span></div>
+                <div class="data-row"><span class="data-lbl">Parity Density Ratio</span><span id="v_ratio">-</span></div>
+            </div>
+        </div>
+
+        <div class="card full-span">
+            <h3 class="card-title">Tool 3: Algebraic Modular Partitions <span class="tool-badge">modulo analyzer.py</span></h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                <div>
+                    <h4 style="margin:0 0 5px 0; font-size:0.8rem; color:var(--text-dim);">Class 0 (mod 3 Dead-Ends)</h4>
+                    <pre id="mod_c0" style="font-size:0.75rem;">-</pre>
+                </div>
+                <div>
+                    <h4 style="margin:0 0 5px 0; font-size:0.8rem; color:var(--text-dim);">Class 1 (mod 3 Targets)</h4>
+                    <pre id="mod_c1" style="font-size:0.75rem;">-</pre>
+                </div>
+                <div>
+                    <h4 style="margin:0 0 5px 0; font-size:0.8rem; color:var(--text-dim);">Class 2 (mod 3 Pass-Throughs)</h4>
+                    <pre id="mod_c2" style="font-size:0.75rem;">-</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tool 4: Parity Matrix Grid <span class="tool-badge">parity tracker.py</span></h3>
+            <div class="render-frame" id="frame_parity">No execution trace cached.</div>
+            <button style="width:100%; margin-top:10px;" onclick="dispatchCompute('parity')">Regenerate Parity Blocks</button>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tool 5: Confluence Grid Blueprint <span class="tool-badge">confluence grid[rows link].py</span></h3>
+            <div class="render-frame" id="frame_grid">No execution trace cached.</div>
+            <button style="width:100%; margin-top:10px;" onclick="dispatchCompute('grid')">Regenerate Confluence Grid</button>
+        </div>
+
+        <div class="card full-span">
+            <h3 class="card-title">Tool 6: 3D Micro-State Topology <span class="tool-badge">3d confluence mapping.py</span></h3>
+            <div class="render-frame" id="frame_landscape" style="min-height: 350px;">No execution trace cached.</div>
+            <button style="width:100%; margin-top:10px;" onclick="dispatchCompute('landscape')">Map 3D Topological Matrix</button>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tool 7: Organic Node Topology <span class="tool-badge">directed graph tree.py</span></h3>
+            <div class="render-frame" id="frame_tree">No execution trace cached.</div>
+            <button style="width:100%; margin-top:10px;" onclick="dispatchCompute('tree')">Compute Direct Structural Tree</button>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tool 8: High-Variance Divergence Filter <span class="tool-badge">ml_statistical_outliers</span></h3>
+            <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">
+                Filters out numbers within the specified boundary that exhibit statistical variance deviations greater than 1.96σ.
+            </div>
+            <pre id="t8_out" style="max-height: 220px;">Awaiting analytical outlier filter execution...</pre>
+        </div>
+
+    </div>
+
+    <script>
+        async function dispatchCompute(toolId) {
+            const num = document.getElementById('param_n').value;
+            const range = document.getElementById('param_range').value;
+            
+            // Console visual loading trigger
+            if(toolId === 'all') {
+                document.getElementById('t1_out').innerText = "Computing complete mathematical matrix...";
+                document.getElementById('t8_out').innerText = "Evaluating multi-dimensional standard deviations...";
+            }
+
+            try {
+                const response = await fetch('/api/compute', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ number: parseInt(num), range_limit: parseInt(range), tool_id: toolId })
+                });
+                
+                const data = await response.json();
+
+                // Hydrate core trajectory telemetry
+                document.getElementById('t1_out').innerText = data.core_metrics.sequence.join(" ➔ ");
+                document.getElementById('v_steps').innerText = data.core_metrics.steps;
+                document.getElementById('v_peak').innerText = data.core_metrics.peak;
+                document.getElementById('v_odd').innerText = data.core_metrics.odd_steps;
+                document.getElementById('v_even').innerText = data.core_metrics.even_steps;
+                document.getElementById('v_ratio').innerText = data.core_metrics.parity_ratio;
+
+                // Hydrate modular arrays
+                document.getElementById('mod_c0').innerText = JSON.stringify(data.modulo_data.class_0_sample) + "... Total: " + data.modulo_data.counts[0];
+                document.getElementById('mod_c1').innerText = JSON.stringify(data.modulo_data.class_1_sample) + "... Total: " + data.modulo_data.counts[1];
+                document.getElementById('mod_c2').innerText = JSON.stringify(data.modulo_data.class_2_sample) + "... Total: " + data.modulo_data.counts[2];
+
+                // Append timestamp query parameters to bust browser caches and force image reloads
+                const ts = new Date().getTime();
+                if(data.parity_img) document.getElementById('frame_parity').innerHTML = `<img src="${data.parity_img}?t=${ts}" />`;
+                if(data.grid_img) document.getElementById('frame_grid').innerHTML = `<img src="${data.grid_img}?t=${ts}" />`;
+                if(data.landscape_img) document.getElementById('frame_landscape').innerHTML = `<img src="${data.landscape_img}?t=${ts}" />`;
+                if(data.tree_img) document.getElementById('frame_tree').innerHTML = `<img src="${data.tree_img}?t=${ts}" />`;
+
+                // Hydrate genuine statistical anomaly calculations
+                if(data.anomalies_list) {
+                    if(data.anomalies_list.length === 0) {
+                        document.getElementById('t8_out').innerText = "No mathematical outliers isolated within current numeric range limits.";
+                    } else {
+                        let logText = "Target Outliers Found (Sorted by σ Deviation):\n";
+                        data.anomalies_list.forEach(item => {
+                            logText += ` n = ${item.n} | Total Halting Steps: ${item.steps} | Variance: ${item.z_score_deviation}σ\n`;
+                        });
+                        document.getElementById('t8_out').innerText = logText;
+                    }
+                }
+
+            } catch (err) {
+                console.error("Matrix execution exception:", err);
+                alert("Computational calculation threshold error. Check terminal execution logs.");
+            }
+        }
+    </script>
+</body>
+</html>
