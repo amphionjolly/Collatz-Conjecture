@@ -47,7 +47,7 @@ class CollatzResearchHub:
         ttk.Button(tools_frame, text="5. Confluence Grid (Image)", command=lambda: self.run_script("confluence grid[rows link].py", use_range=True)).grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         ttk.Button(tools_frame, text="6. 3D Landscape (Image)", command=lambda: self.run_script("3d confluence mapping.py", use_range=True)).grid(row=1, column=2, padx=5, pady=5, sticky="ew")
         ttk.Button(tools_frame, text="7. Directed Graph Tree", command=lambda: self.run_script("directed graph tree.py", use_range=True)).grid(row=2, column=0, padx=5, pady=5, sticky="ew")
-        ttk.Button(tools_frame, text="8. Inverse Topology (Heavy)", command=lambda: self.run_script("inverse_collatz.py", use_range=True)).grid(row=2, column=1, padx=5, pady=5, sticky="ew")
+        ttk.Button(tools_frame, text="8. Inverse Topology", command=lambda: self.run_script("inverse_collatz.py", use_range=True)).grid(row=2, column=1, padx=5, pady=5, sticky="ew")
         
         for i in range(3):
             tools_frame.columnconfigure(i, weight=1)
