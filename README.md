@@ -1,8 +1,8 @@
-# Collatz Conjecture Desktop Research Hub
+# Collatz Conjecture Research Tool
 
-A powerful, native Python GUI application designed for deep mathematical exploration of the Collatz Conjecture (the $3n+1$ problem). 
+This is a tool designed to help find patterns and eventually solve the very old and famous mathematical problem- the collatz conjecture.
 
-Rather than relying on static web dashboards, this hub leverages local OS compute power to generate interactive Matplotlib windows, 3D landscapes, parity mappings, and complex algebraic network graphs. It acts as a central command station, piping telemetry directly into a built-in terminal while organizing graphical outputs into dynamically generated local directories.
+Rather than relying on calculators or paper, this tool helps generate interactive visual patterns of specific sequence of conjecture, and various other visual functions made using Matplotlab in python. Few visual tools includes 3D landscapes, parity mappings, and complex algebraic network graphs. It has an built in terminal which outputs the computational works, while organizing graphical outputs into auto generated local directories. And also the tool itself runs locally on your device, and it is fully open source.
 
 ## The Mathematics
 
@@ -10,7 +10,9 @@ The Collatz Conjecture applies the following operation to any positive integer $
 
 $$f(n) = \begin{cases} n/2 & \text{if } n \equiv 0 \pmod{2} \\ 3n + 1 & \text{if } n \equiv 1 \pmod{2} \end{cases}$$
 
-This laboratory provides the tools to search for algebraic engines, structural anomalies, and confluence patterns within these deterministic sequences.
+To know more about Collatz Conjecture, visit (https://en.wikipedia.org/wiki/Collatz_conjecture)
+
+This tool provides the functions to search for algebraic engines, structural anomalies, and confluence patterns within these determined sequences.
 
 ---
 
