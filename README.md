@@ -1,6 +1,6 @@
 # Collatz Conjecture Research Tool
 
-This is a tool designed to help find patterns and eventually solve the very old and famous mathematical problem- the collatz conjecture.
+This is a tool designed to help find patterns and do research on the very old and famous mathematical problem of  collatz conjecture.
 
 Rather than relying on calculators or paper, this tool helps generate interactive visual patterns of specific sequence of conjecture, and various other visual functions made using Matplotlab in python. Few visual tools includes 3D landscapes, parity mappings, and complex algebraic network graphs. It has an built in terminal which outputs the computational works, while organizing graphical outputs into auto generated local directories. And also the tool itself runs locally on your device, and it is fully open source.
 
@@ -10,7 +10,13 @@ Rather than relying on calculators or paper, this tool helps generate interactiv
 
 The Collatz Conjecture applies the following operation to any positive integer $n$:
 
-$$f(n) = \begin{cases} n/2 & \text{if } n \equiv 0 \pmod{2} \\ 3n + 1 & \text{if } n \equiv 1 \pmod{2} \end{cases}$$
+```math
+f(n) = \begin{cases} 
+\frac{n}{2} & \text{if } n \equiv 0 \pmod{2} \\ 
+3n + 1 & \text{if } n \equiv 1 \pmod{2} 
+\end{cases}
+```
+
 
 To know more about Collatz Conjecture, visit (https://en.wikipedia.org/wiki/Collatz_conjecture)
 
@@ -20,7 +26,7 @@ This tool provides the functions to search for algebraic engines, structural ano
 
 ## Main Features
 
-The software includes 8 separate tools to analyse the conjecture of different values and find patterns of it, then visualise them by plotting it in a map, and also to computationaly solve specified conjecture:
+The software includes 8 separate tools to analyse the conjecture of different values and find patterns of it, then visualise them by plotting it in a map, and also to computationaly solve specified conjecture trajectories:
 
 1. **Console Trajectory** (`collatz conjecture.py`): Calculates the step-by-step path of $n$ down to 1, means performs the algorithm of collatz conjecture to the given number and outputs  values of every step.
 
