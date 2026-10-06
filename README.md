@@ -57,3 +57,7 @@ The software includes 8 separate tools to analyse the conjecture of different va
 3. Run
    ```bash
    python app.py
+
+   OR
+1. Install the exe from (https://github.com/amphionjolly/Collatz-Conjecture/blob/main/dist/app.exe) [as raw]
+2. It would open automatically
